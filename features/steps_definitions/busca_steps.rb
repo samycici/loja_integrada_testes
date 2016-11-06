@@ -17,6 +17,7 @@ end
 
 ######### ENTãO #########
 Então(/^visualizo o resultado de busca com apenas esse filme$/) do
+  @resultado_busca.wait_for_resultado_busca_title
   qtd_resultados = @resultado_busca.qtd_resultados
   nome_resultados =  @resultado_busca.nome_resultados
   expect(qtd_resultados).to eq(1)
@@ -24,6 +25,7 @@ Então(/^visualizo o resultado de busca com apenas esse filme$/) do
 end
 
 Então(/^visualizo o resultado de busca com todos os filmes correspondentes a essa pesquisa$/) do
+  @resultado_busca.wait_for_resultado_busca_title
   qtd_resultados = @resultado_busca.qtd_resultados
   nome_resultados =  @resultado_busca.nome_resultados
   expect(qtd_resultados).to eq(2)
@@ -31,6 +33,7 @@ Então(/^visualizo o resultado de busca com todos os filmes correspondentes a es
 end
 
 Então(/^visualizo que minha busca não encontrou resultado$/) do
+  @resultado_busca.wait_for_resultado_busca_title
   mensagem = @resultado_busca.mensagem_busca_sem_resultados
   expect(mensagem).to include("Sua busca por: \"Homem Aranha\" não encontrou nenhum resultado")
 end
