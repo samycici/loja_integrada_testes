@@ -1,8 +1,7 @@
 desc "Executar os testes em dev usando o Chrome"
 task :test_chrome_dev do
   puts "Executando test:chrome:dev"
-  sh "bundle exec cucumber -p chrome -p dev"
-  #sh "bundle exec cucumber -p chrome -p dev -p html_report"
+  sh "bundle exec cucumber -p chrome -p dev -p html_report"
 end
 
 desc "Executar os testes em dev usando o Firefox"
